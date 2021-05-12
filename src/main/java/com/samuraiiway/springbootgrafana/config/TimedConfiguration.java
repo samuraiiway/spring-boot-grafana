@@ -12,4 +12,9 @@ public class TimedConfiguration {
     public TimedAspect timedAspect(MeterRegistry registry) {
         return new TimedAspect(registry);
     }
+
+    @Bean
+    public CustomTimedAspect customTimedAspect(MeterRegistry registry) {
+        return new CustomTimedAspect(registry);
+    }
 }

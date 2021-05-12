@@ -27,4 +27,9 @@ public class TestController {
         testService.test(true);
         return ResponseEntity.ok("test");
     }
+
+    @GetMapping("/test/custom/success")
+    public ResponseEntity testCustomSuccess(String name, boolean exception) throws Exception {
+        return ResponseEntity.ok(testService.testCustomTimed(exception, name));
+    }
 }

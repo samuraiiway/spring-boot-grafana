@@ -1,5 +1,6 @@
 package com.samuraiiway.springbootgrafana.service;
 
+import com.samuraiiway.springbootgrafana.annotation.CustomTimed;
 import io.micrometer.core.annotation.Timed;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -20,5 +21,16 @@ public class TestService {
         if (isException) {
             throw new Exception("Exception");
         }
+    }
+
+    @CustomTimed("test_custom_timed")
+    public String testCustomTimed(boolean isException, String name) throws Exception {
+        Thread.sleep(random.nextInt(100) * 5);
+
+        if (isException) {
+            throw new Exception("Exception");
+        }
+
+        return "Hello: " + name;
     }
 }
